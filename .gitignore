@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+
+# Production builds
+out/
+
+# Logs
+*.log
+
+# Dependency directories
+.pnp/
+.pnp.js
+
+# .env files (avoid committing sensitive data)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# npm package lock files, for yarn users instead of npm
+yarn.lock
+
+# npm package lock files
+package-lock.json
