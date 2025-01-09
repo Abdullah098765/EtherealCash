@@ -64,7 +64,7 @@ const Banner = () => {
                     EtherealCash!
                   </span>
                   <span class="d-block d-md-none">
-                    Contact for OTC transaction
+                    Contact for OTC
                   </span>
                 </button>
               </Link>
