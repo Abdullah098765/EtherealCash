@@ -56,7 +56,7 @@ const Banner = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-xl-10">
-            <div className="banner-countdown-wrap text-center">
+            <div className="banner-countdown-wrap text-center mb-6">
               <Link href="#contact">
                 <button class="btn glow-on-hover  d-flex justify-content-center align-items-center">
                   <span class="d-none d-md-block">
