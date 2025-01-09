@@ -1,5 +1,6 @@
 import React from "react";
 import CountDownOne from "../CountDown/CountDownOne";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -28,8 +29,8 @@ const Banner = () => {
             <div className="banner-content text-center">
               <img src={"/img/icon/tokenIcon.png"} alt="" />
               <h2 className="title">
-                Join the Future of Trading with <span>EtherealCash</span> on
-                Signal Vase
+                Join <span>EtherealCashs</span> exclusive OTC phase and be part
+                of the revolution in AI-driven trading.
               </h2>
             </div>
             <div className="banner-progress-wrap">
@@ -42,14 +43,14 @@ const Banner = () => {
                 <div
                   className="progress-bar"
                   role="progressbar"
-                  style={{ width: "20%" }}
+                  style={{ width: "0%" }}
                   aria-valuenow="75"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 />
               </div>
               <h4 className="title">
-                65% target raised <span>1 ERCH = $0.3</span>
+                0% target raised <span>1 ERCH = $0.3</span>
               </h4>
             </div>
           </div>
@@ -57,9 +58,15 @@ const Banner = () => {
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="banner-countdown-wrap text-center">
-              <h2 className="title">ICO Will Start In..</h2>
+            <Link href="#contact" >
 
-              <CountDownOne />
+              <button class="glow-on-hover mb-4">
+                  Be the First to Join the Future of AI Trading with
+                  EtherealCash!
+              </button>
+              </Link>
+
+              {/* <CountDownOne /> */}
             </div>
           </div>
         </div>

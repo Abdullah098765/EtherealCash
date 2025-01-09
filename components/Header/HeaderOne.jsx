@@ -118,7 +118,6 @@ const HeaderOne = () => {
                           <li className={cn(pathname == "/" && "active")}>
                             <Link href="/">Home</Link>
                           </li>
-                          
                         </ul>
                       </li>
                       <li className={cn(hash == "about" && "active")}>
@@ -179,7 +178,6 @@ const HeaderOne = () => {
                       <li className={"header-lang"}>
                         <span className={"selected-lang"}>ENG</span>
                         <ul className={"lang-list"}>
-                       
                           <li>
                             <Link href="#">English</Link>
                           </li>
@@ -187,7 +185,7 @@ const HeaderOne = () => {
                       </li>
                       <li className={"header-btn"}>
                         <Link href="#contact" className="btn">
-                          Buy Now
+                          Contact Us for OTC Deals
                         </Link>
                       </li>
                     </ul>

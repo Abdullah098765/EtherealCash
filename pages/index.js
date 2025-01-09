@@ -13,11 +13,15 @@ import LayoutOne from "@/layouts/LayoutOne";
 export default function Home() {
   return (
     <>
- <Head>
-    <title>EtherealCash ICO - Revolutionizing Crypto with AI Trading for Traders</title>
-    <meta name="description" content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community." />
-</Head>
-
+      <Head>
+        <title>
+          EtherealCash ICO - Revolutionizing Crypto with AI Trading for Traders
+        </title>
+        <meta
+          name="description"
+          content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community."
+        />
+      </Head>
 
       <LayoutOne>
         <main className="fix">

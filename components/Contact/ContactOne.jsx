@@ -39,7 +39,7 @@ const ContactOne = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="section-title text-center mb-70">
-              <span className="sub-title">Contact</span>
+              <span className="sub-title">Contact Us for OTC Deals</span>
               <h2 className="title">
                 Connect With Us to Purchase <span>EtherealCash</span>
               </h2>
