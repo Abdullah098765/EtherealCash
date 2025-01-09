@@ -5,6 +5,8 @@ import "@/styles/react-odometer-theme.css";
 import "@/styles/default.css";
 import "@/styles/globals.css";
 import "@/styles/responsive.css";
+import "@/styles/main-button.css"
+
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 

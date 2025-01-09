@@ -1,7 +1,6 @@
 import React from "react";
 import CountDownOne from "../CountDown/CountDownOne";
 import Link from "next/link";
-
 const Banner = () => {
   return (
     <section className="banner-area banner-bg">
@@ -58,12 +57,16 @@ const Banner = () => {
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="banner-countdown-wrap text-center">
-            <Link href="#contact" >
-
-              <button class="glow-on-hover mb-4">
-                  Be the First to Join the Future of AI Trading with
-                  EtherealCash!
-              </button>
+              <Link href="#contact">
+                <button class="btn glow-on-hover btn-lg btn-block d-flex justify-content-center align-items-center">
+                  <span class="d-none d-md-block">
+                    Be the First to Join the Future of AI Trading with
+                    EtherealCash!
+                  </span>
+                  <span class="d-block d-md-none">
+                    Contact for OTC transaction
+                  </span>
+                </button>
               </Link>
 
               {/* <CountDownOne /> */}

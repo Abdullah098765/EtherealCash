@@ -1,0 +1,92 @@
+
+/* Button New*/
+.glow-on-hover {
+    width: 80%; /* Use percentage for responsive width */
+    max-width: 800px; /* Set a max-width so it doesn't stretch too much on large screens */
+    height: 70px; /* Keep the height fixed for consistency */
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 0 20px;
+    font-size: 18px; /* Default font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(135deg, #ffffff, #ffbac3, #bbb6ff, #90e6f1, #00c4f4, #85edff, #ffffff);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    border-radius: 10px;
+    opacity: 1;
+  }
+  
+  .glow-on-hover:hover {
+    color: #000;
+  }
+  
+  .glow-on-hover:hover:after {
+    background: transparent;
+  }
+  
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+  
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+  
+  /* Mobile responsiveness */
+  @media (min-width: 600px) {
+    .glow-on-hover {
+      width: 90%; /* Adjust width to 90% on mobile */
+      height: 50px; /* Reduce height on smaller screens */
+      font-size: 14px; /* Decrease font size */
+      padding: 0 10px; /* Reduce padding */
+      background-color: #007ff4;
+    }
+  
+    .glow-on-hover span {
+      display: none; /* Hide extra text if necessary */
+    }
+  
+    /* Shorten content on mobile */
+    .glow-on-hover::before {
+      content: "Contact for OTC transaction";
+      font-size: 14px; /* Ensure the new text fits well */
+    }
+  }
+  
