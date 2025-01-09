@@ -69,24 +69,5 @@
     100% { background-position: 0 0; }
   }
   
-  /* Mobile responsiveness */
-  @media (min-width: 600px) {
-    .glow-on-hover {
-      width: 90%; /* Adjust width to 90% on mobile */
-      height: 50px; /* Reduce height on smaller screens */
-      font-size: 14px; /* Decrease font size */
-      padding: 0 10px; /* Reduce padding */
-      background-color: #007ff4;
-    }
-  
-    .glow-on-hover span {
-      display: none; /* Hide extra text if necessary */
-    }
-  
-    /* Shorten content on mobile */
-    .glow-on-hover::before {
-      content: "Contact for OTC transaction";
-      font-size: 14px; /* Ensure the new text fits well */
-    }
-  }
+
   

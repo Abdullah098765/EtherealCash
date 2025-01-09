@@ -58,14 +58,12 @@ const Banner = () => {
           <div className="col-xl-10">
             <div className="banner-countdown-wrap text-center">
               <Link href="#contact">
-                <button class="btn glow-on-hover btn-lg btn-block d-flex justify-content-center align-items-center">
+                <button class="btn glow-on-hover  d-flex justify-content-center align-items-center">
                   <span class="d-none d-md-block">
                     Be the First to Join the Future of AI Trading with
                     EtherealCash!
                   </span>
-                  <span class="d-block d-md-none">
-                    Contact for OTC
-                  </span>
+                  <span class="d-block d-md-none">Contact for OTC</span>
                 </button>
               </Link>
 
