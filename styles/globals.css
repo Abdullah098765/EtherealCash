@@ -2148,23 +2148,32 @@ label {
   transform: matrix(1, 0, 0, -1, 0, 0);
   z-index: -1;
 }
+
+
+
 .team-item {
   text-align: center;
   margin-bottom: 60px;
 }
+
 .team-item .team-thumb {
   position: relative;
   border-radius: 50%;
   padding: 15px;
   margin-bottom: 30px;
   display: inline-block;
+  width: 100%; /* Ensure the image takes up the container's width */
+  max-width: 200px; /* You can adjust this to your desired max width */
 }
+
 .team-item .team-thumb::before {
   content: "";
   left: 0;
   top: 0;
-  width: 300px;
-  height: 300px;
+  width: 100%; /* Use percentage to make it responsive */
+  height: 100%; /* Ensure it scales with the image */
+  max-width: 220px; /* Max size of the border */
+  max-height: 220px; /* Max size of the border */
   background: transparent;
   border: 2px dashed #00c4f4;
   border-radius: 50%;
@@ -2173,9 +2182,14 @@ label {
   animation: rotateme 0.4s linear infinite;
   opacity: 0;
 }
+
 .team-item:hover .team-thumb::before {
   opacity: 1;
 }
+
+
+
+
 .team-item .team-thumb img {
   border-radius: 50%;
   filter: grayscale(100%);
