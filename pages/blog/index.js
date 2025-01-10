@@ -14,24 +14,31 @@ export default function Home() {
   });
 
   const fetchBlogs = async () => {
-    return await client.fetch(`
+    console.log("first")
+    const res = await client.fetch(`
     *[_type == "blog"] {
-      title, slug, author, mainImage, publishedAt, categories
+      title, slug, author, mainImage, publishedAt, categories, body
     }
   `);
+    console.log(res, ">>>>>>>>>>>>>>>>>>>");
+    debugger
+    return res;
   };
   useEffect(() => {
-    console.log(fetchBlogs());
+    fetchBlogs()
   }, []);
 
   return (
     <>
- <Head>
-    <title>EtherealCash - Revolutionizing Crypto with AI Trading for Traders</title>
-    <meta name="description" content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community." />
-</Head>
-
-
+      <Head>
+        <title>
+          EtherealCash - Revolutionizing Crypto with AI Trading for Traders
+        </title>
+        <meta
+          name="description"
+          content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community."
+        />
+      </Head>
 
       <LayoutBlog pageTitle={"Blog & Article"} item={"Blog"}>
         <BlogList />
