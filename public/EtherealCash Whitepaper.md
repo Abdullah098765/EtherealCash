@@ -12,7 +12,7 @@ The initial supply of EtherealCash is capped at **500,000,000 ERCH**, all of whi
 ### Key Details
 - **Token Name**: EtherealCash
 - **Ticker Symbol**: ERCH
-- **Blockchain**: Ethereum (ERC20 standard)
+- **Blockchain**: Polygon (ERC20 standard)
 - **Initial Supply**: 500,000,000 ERCH
 - **Decimals**: 18
 
