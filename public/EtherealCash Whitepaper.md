@@ -1,3 +1,4 @@
+![EtherealCash Logo](https://firebasestorage.googleapis.com/v0/b/signal-hub-eb98f.appspot.com/o/logos%2Flogo.png?alt=media&token=7a3fddb1-ec7f-4b62-bad4-9e81dfa27d7f)
 # EtherealCash Whitepaper
 
 ## Introduction
