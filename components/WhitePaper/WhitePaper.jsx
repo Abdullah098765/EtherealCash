@@ -23,20 +23,28 @@ const WhitePaper = () => {
               <div className="section-title mb-35">
                 <span className="sub-title">Whitepaper</span>
                 <h2 className="title">
-                  Read Bigtech <span>Documents</span>
+                  Read Our <span>Documents</span>
                 </h2>
               </div>
 
               <ul className="document-list">
-                <li>White Paper</li>
-                <li>Privaci & Policy</li>
-                <li>Terms Of Coin Sale</li>
-                <li>One Pager</li>
+                <li>
+                  <Link href="/whitepaper">White Paper</Link>
+                </li>
+                <li>
+                  <Link href="/pitchdeck">Pitch Deck</Link>
+                </li>
+                <li>
+                  <Link href="/privacy">Privacy & Policy</Link>
+                </li>
+                {/* <li>
+                  <Link href="/terms-of-coin-sale">Terms Of Coin Sale</Link>
+                </li> */}
               </ul>
 
-              <Link href="/" className="btn">
+              {/* <Link href="/" className="btn">
                 Download Doc
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

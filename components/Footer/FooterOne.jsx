@@ -34,19 +34,21 @@ const FooterOne = () => {
                       trading community.
                     </p>
                     <ul className="footer-social">
-                    
                       <li>
-                        <a href="https://x.com/signalvase">
+                        <a target="_" href="https://x.com/signalvase">
                           <i className="fab fa-twitter"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://t.me/signal_vase">
+                        <a target="_" href="https://t.me/signal_vase">
                           <i className="fab fa-telegram"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.linkedin.com/company/signalvase">
+                        <a
+                          target="_"
+                          href="https://www.linkedin.com/company/signalvase"
+                        >
                           <i className="fab fa-linkedin"></i>
                         </a>
                       </li>

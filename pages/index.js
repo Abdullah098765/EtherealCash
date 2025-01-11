@@ -34,7 +34,7 @@ export default function Home() {
 
           <div className="area-bg">
             {/* <Roadmap /> */}
-            {/* <WhitePaper /> */}
+            <WhitePaper />
           </div>
 
           <TeamOne />

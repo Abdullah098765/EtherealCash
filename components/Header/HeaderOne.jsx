@@ -218,29 +218,20 @@ const HeaderOne = () => {
 
                   <div className={"social-links"}>
                     <ul className="clearfix">
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
+                      
+                    <li>
+                        <a target="_" href="https://x.com/signalvase">
                           <i className="fab fa-twitter"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="fab fa-instagram"></i>
+                        <a target="_" href="https://t.me/signal_vase">
+                          <i className="fab fa-telegram"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fab fa-youtube"></i>
+                        <a target="_" href="https://www.linkedin.com/company/signalvase">
+                          <i className="fab fa-linkedin"></i>
                         </a>
                       </li>
                     </ul>

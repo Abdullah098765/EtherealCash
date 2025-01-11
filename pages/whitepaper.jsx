@@ -27,7 +27,7 @@ export default function Whitepaper() {
   return (
     <>
       <LayoutOne>
-        <div className="d-flex flex-column align-items-center justify-content-center bg-blue mt-4">
+        <div className="d-flex flex-column align-items-center justify-content-center mt-4 ">
           <div
             className="markdown-body b p-3 w-100"
             style={{
