@@ -1,155 +1,121 @@
 import React from "react";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
+import imageUrlBuilder from "@sanity/image-url";
+import SocialShare from "./SocialShare";
 
-const BlogDetails = () => {
+const BlogDetails = ({ blog, client }) => {
+  const urlFor = (source) => imageUrlBuilder(client).image(source);
+
+  if (!blog) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="blog-post-item blog-details-wrap">
+      {/* Blog Thumbnail */}
       <div className="blog-post-thumb">
-        <img src={"/img/blog/blog_img01.jpg"} alt="" />
+        <img
+          src={blog?.images?.[0]?.asset?.url || "/img/blog/default_img.jpg"}
+          alt={blog.title}
+        />
       </div>
+
+      {/* Blog Content */}
       <div className="blog-post-content">
+        {/* Blog Metadata */}
         <div className="blog-meta">
           <ul>
             <li>
-              <a href="/blog/blog-details">
-                <i className="far fa-user"></i>Alextina
+              <a href="#">
+                <img
+                  src={blog.authorImage}
+                  alt={blog.authorName}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    borderRadius: "50%",
+                    marginRight: "5px",
+                  }}
+                />
+                {blog.authorName}
               </a>
             </li>
             <li>
-              <i className="far fa-clock"></i>Dec 28, 2022
+              <i className="far fa-clock"></i>
+              {new Date(blog.publishedAt).toLocaleDateString()}
             </li>
             <li>
-              <a href="/blog/blog-details">
-                <i className="fas fa-comment-dots"></i>(04) Comments
-              </a>
+              {/* Placeholder for comments count */}
+              <i className="fas fa-book-reader"></i>
+              {blog.readingTime
+                ? `${blog.readingTime} min read`
+                : "Reading time not available"}
             </li>
           </ul>
         </div>
-        <h2 className="title">
-          New trends in UI/UX Design World of crypto Integration of this year
-        </h2>
-        <p>
-          Laboratories used for scientific research take many forms because of
-          the differing requirements of specialists in the various fields of
-          science and engineering. A physics laboratory
-        </p>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, aperiam ipsquae ab illo inventore
-          veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-          enim voluptatem voluptas sit aspernatur aut odit aut fugit, sed quia
-          consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-          Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-        </p>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, aperiam ipsquae ab illo inventore
-          veritatis et quasi architecto beatae vitae dicta sunt explicabo
-        </p>
-        <div className="bd-approach-wrap">
-          <div className="row align-items-center">
-            <div className="col-46">
-              <div className="bd-approach-content">
-                <h4 className="title">Our Approach</h4>
-                <p>
-                  Must explain to you how all praising uts pain was born and I
-                  will gives you a itself completed account of the system, and
-                  sed expounds the ut actual teachings of that greater
-                </p>
 
-                <ul>
-                  <li>
-                    <i className="fas fa-check"></i>Extramural Funding
-                  </li>
-                  <li>
-                    <i className="fas fa-check"></i>Bacteria Markers
-                  </li>
-                  <li>
-                    <i className="fas fa-check"></i>Nam nec mi euismod euismod
-                  </li>
-                </ul>
-              </div>
-            </div>
+        {/* Blog Title */}
+        <h2 className="title">{blog.title}</h2>
 
-            <div className="col-54">
-              <div className="bd-approach-img">
-                <img src={"/img/blog/blog_details01.jpg"} alt="" />
-              </div>
-            </div>
-          </div>
+        {/* Blog Body */}
+        <div className="blog-body">
+          <PortableText
+            value={blog.body}
+            components={{
+              types: {
+                image: ({ value }) => {
+                  if (!value.asset?._ref) return null;
+
+                  return (
+                    <img
+                      src={urlFor(value.asset).url()}
+                      alt="Blog content image"
+                      style={{ maxWidth: "100%", margin: "20px 0" }}
+                    />
+                  );
+                },
+              },
+
+              marks: {
+                link: ({ children, value }) => (
+                  <a
+                    href={
+                      value.href.startsWith("http://") ||
+                      value.href.startsWith("https://")
+                        ? value.href
+                        : `http://${value.href}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {children}
+                  </a>
+                ),
+              },
+            }}
+          />
         </div>
 
-        <div className="bd-technology-content">
-          <h2 className="title">What Is A Business Technology Roadmap?</h2>
-          <p>
-            Unlike detailed blueprints that lay out all tasks, deadlines, bug
-            reports, and more along the way, technology roadmaps are high-level
-            visual summaries highlighting a company’s vision or plans.
-          </p>
-          <p>
-            In an Agile approach, a technology roadmap feeds the sprint and
-            grooming processes, providing insight into how the product will
-            travel from start to finish. It makes it easier for development
-            teams to:
-          </p>
-        </div>
-
-        <div className="blog-details-img">
-          <div className="row">
-            <div className="col-md-6">
-              <img src={"/img/blog/blog_details02.jpg"} alt="" />
-            </div>
-            <div className="col-md-6">
-              <img src={"/img/blog/blog_details03.jpg"} alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div className="blog-details-bottom">
+        {/* Tags */}
+        {blog.tags && (
           <div className="blog-details-tags">
             <ul>
-              <li className="tag-title">Tag</li>
-              <li>
-                <Link href={"/blog"}>Business</Link>
-              </li>
-              <li>
-                <Link href={"/blog"}>Design</Link>
-              </li>
-              <li>
-                <Link href={"/blog"}>apps</Link>
-              </li>
-              <li>
-                <Link href={"/blog"}>data</Link>
-              </li>
+              <li className="tag-title">Tags</li>
+              {blog.tags.map((tag, index) => (
+                <li key={index}>
+                  <Link href={`/tags/${tag}`}>{tag}</Link>
+                </li>
+              ))}
             </ul>
           </div>
+        )}
 
-          <div className="blog-details-social">
-            <ul>
-              <li className="social-title">Share</li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-pinterest"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-twitter"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {/* Social Share */}
+        <SocialShare
+          title="Check out this amazing blog!"
+          image="blog?.images?.[0]?.asset?.url"
+        />
       </div>
     </div>
   );

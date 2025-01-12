@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@portabletext/react": "^3.2.0",
+    "@sanity/image-url": "^1.1.0",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
     "emailjs-com": "^3.2.0",
@@ -22,6 +24,7 @@
     "react-dom": "^18.3.0",
     "react-markdown": "^9.0.3",
     "react-odometerjs": "^3.1.0",
+    "react-share": "^5.1.2",
     "react-slick": "^0.29.0",
     "react-syntax-highlighter": "^15.6.1",
     "remark-gfm": "^4.0.0",

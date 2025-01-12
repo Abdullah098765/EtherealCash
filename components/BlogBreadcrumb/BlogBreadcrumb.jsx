@@ -7,7 +7,7 @@ const BlogBreadcrumb = (props) => {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="breadcrumb-content">
-              <h2 className="title">{props.title}</h2>
+              {/* <h2 className="title">{props.title}</h2> */}
               <nav aria-label="Breadcrumbs">
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">

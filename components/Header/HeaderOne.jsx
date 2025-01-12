@@ -149,18 +149,6 @@ const HeaderOne = () => {
                       </li> */}
                       {/* <li className={"menu-item-has-children"}>
                         <Link href="/blog">Blog</Link>
-                        <ul className={cn("sub-menu")}>
-                          <li className={cn(pathname == "/blog" && "active")}>
-                            <Link href="/blog">Our Blog</Link>
-                          </li>
-                          <li
-                            className={cn(
-                              pathname == "/blog/blog-details" && "active"
-                            )}
-                          >
-                            <Link href="/blog/blog-details">Blog Details</Link>
-                          </li>
-                        </ul>
                       </li> */}
                       <li className={isActiveLink("#contact")}>
                         <Link
@@ -218,8 +206,7 @@ const HeaderOne = () => {
 
                   <div className={"social-links"}>
                     <ul className="clearfix">
-                      
-                    <li>
+                      <li>
                         <a target="_" href="https://x.com/signalvase">
                           <i className="fab fa-twitter"></i>
                         </a>
@@ -230,7 +217,10 @@ const HeaderOne = () => {
                         </a>
                       </li>
                       <li>
-                        <a target="_" href="https://www.linkedin.com/company/signalvase">
+                        <a
+                          target="_"
+                          href="https://www.linkedin.com/company/signalvase"
+                        >
                           <i className="fab fa-linkedin"></i>
                         </a>
                       </li>

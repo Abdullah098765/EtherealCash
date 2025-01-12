@@ -28,7 +28,7 @@ const Banner = () => {
             <div className="banner-content text-center">
               <img src={"/img/icon/tokenIcon.png"} alt="" />
               <h2 className="title">
-                Join <span>EtherealCashs</span> exclusive OTC phase and be part
+                Join <span>EtherealCash's</span> exclusive OTC phase and be part
                 of the revolution in AI-driven trading.
               </h2>
             </div>

@@ -9,8 +9,8 @@ let flag = true;
 const HeaderTwo = () => {
   // sticky nav bar
   const [stickyClass, setStickyClass] = useState({
-    fixed: "",
-    header: "",
+    fixed: "active-height",
+    header: "sticky-menu",
   });
 
   const stickNavbar = () => {
@@ -125,7 +125,6 @@ const HeaderTwo = () => {
                         >
                           Home
                         </Link>
-                      
                       </li>
                       <li className={cn(hash == "about" && "active")}>
                         <a

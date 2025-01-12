@@ -3,104 +3,123 @@ import Link from "next/link";
 
 const FooterThree = () => {
   return (
-    <footer>
+<footer>
       <div className="footer-area-three footer-bg">
         <div className="container">
+       
           <div className="footer-top">
             <div className="row">
               <div className="col-xl-3 col-lg-4 col-md-6">
-                <div className="footer-widget">
+                <div
+                  className="footer-widget wow fadeInUp"
+                  data-wow-delay=".2s"
+                >
                   <Link href="/" className="f-logo">
-                    <img src={"/img/logo/logo.png"} alt="" />
+                    <img src={"/img/logo/logo.png"} alt="Signal Vase Logo" />
                   </Link>
                   <div className="footer-content">
                     <p>
-                      A new way to make the payments easy, reliable and 100%
-                      secure. claritatem itamconse quat. Exerci tationulla
+                      Revolutionizing trading with AI-powered insights,
+                      transparency and seamless payment systems. Signal Vase
+                      ensures every signal counts and builds trust in the
+                      trading community.
                     </p>
                     <ul className="footer-social">
                       <li>
-                        <a href="#">
-                          <i className="fab fa-youtube"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
+                        <a target="_" href="https://x.com/signalvase">
                           <i className="fab fa-twitter"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="fab fa-facebook-f"></i>
+                        <a target="_" href="https://t.me/signal_vase">
+                          <i className="fab fa-telegram"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i className="fab fa-skype"></i>
+                        <a
+                          target="_"
+                          href="https://www.linkedin.com/company/signalvase"
+                        >
+                          <i className="fab fa-linkedin"></i>
                         </a>
                       </li>
+                      {/* <li>
+                        <a href="#">
+                          <i className="fab fa-instagram"></i>
+                        </a>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
               </div>
               <div className="col-xl-3 col-lg-5 col-sm-6">
-                <div className="footer-widget">
-                  <h4 className="fw-title">Usefull Links</h4>
+                <div
+                  className="footer-widget wow fadeInUp"
+                  data-wow-delay=".4s"
+                >
+                  <h4 className="fw-title">Quick Links</h4>
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">Contact us</Link>
+                        <Link href="/#about">About Us</Link>
                       </li>
                       <li>
-                        <Link href="#">How it Works</Link>
+                        <a
+                          target="_"
+                          href="https://polygonscan.com/token/0xe53b2a27dd87ced67f5b1ba4da9754505ac4cf60"
+                        >
+                          Token Explorer
+                        </a>
                       </li>
                       <li>
-                        <Link href="#">Create</Link>
+                        <Link href="/#contact">Contact</Link>
                       </li>
                       <li>
-                        <Link href="#">Explore</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Terms & Services</Link>
+                        <Link href="/faq">FAQ</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
               <div className="col-xl-2 col-lg-3 col-sm-6">
-                <div className="footer-widget">
+                <div
+                  className="footer-widget wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
                   <h4 className="fw-title">Community</h4>
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">Help Center</Link>
+                        <Link href="/#partners">Partners</Link>
                       </li>
+                      {/* <li>
+                        <Link href="/blog">Blog</Link>
+                      </li>
+                    
                       <li>
-                        <Link href="#">Partners</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Suggestions</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Blog</Link>
-                      </li>
-                      <li>
-                        <Link href="#">Newsletters</Link>
-                      </li>
+                        <Link href="/careers">Careers</Link>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-4 col-md-6">
-                <div className="footer-widget">
-                  <h4 className="fw-title">Subscribe Newsletter</h4>
+                <div
+                  className="footer-widget wow fadeInUp"
+                  data-wow-delay=".8s"
+                >
+                  <h4 className="fw-title">Subscribe to Updates</h4>
                   <div className="footer-newsletter">
                     <p>
-                      Exerci tation ullamcorper suscipit lobortis nisl aliquip
-                      ex ea commodo
+                      Stay updated with the latest trading insights, platform
+                      updates, and exclusive opportunities from Signal Vase.
                     </p>
                     <form action="#">
-                      <input type="email" placeholder="Info@gmail.com" />
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                      />
                       <button type="submit">
                         <i className="fas fa-paper-plane"></i>
                       </button>
@@ -114,20 +133,27 @@ const FooterThree = () => {
             <div className="row align-items-center">
               <div className="col-lg-6">
                 <div className="copyright-text">
-                  <p>© Copyright 2022 Bigtech. All Rights Reserved Copyright</p>
+                  <p>
+                    Copyright &copy; 2025. All Rights Reserved | Signal Vase
+                  </p>
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-6 d-none d-sm-block">
                 <div className="footer-menu">
                   <ul>
                     <li>
-                      <Link href="#">Terms and conditions</Link>
+                      <Link href="/terms">Terms of Service</Link>
                     </li>
                     <li>
-                      <Link href="#">Privacy policy</Link>
+                      <Link href="/privacy">Privacy Policy</Link>
                     </li>
                     <li>
-                      <Link href="#">Login / Signup</Link>
+                      <a
+                        target="_"
+                        href="https://www.signalvase.com/home?signup=true"
+                      >
+                        App Access
+                      </a>
                     </li>
                   </ul>
                 </div>

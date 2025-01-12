@@ -2,7 +2,7 @@ import { scrollToTop } from "@/lib/helpers";
 import Link from "next/link";
 import React from "react";
 
-const FooterOne = () => {
+const  FooterOne = () => {
   return (
     <footer>
       <div className="footer-area">
