@@ -147,9 +147,9 @@ const HeaderOne = () => {
                           Roadmap
                         </Link>
                       </li> */}
-                      <li className={"menu-item-has-children"}>
+                      {/* <li className={"menu-item-has-children"}>
                         <Link href="/blog">Blog</Link>
-                      </li>
+                      </li> */}
                       <li className={isActiveLink("#contact")}>
                         <Link
                           href="#contact"
