@@ -4,7 +4,7 @@ import BlogPages from "./BlogPages";
 import BlogRecents from "./BlogRecents";
 import BlogSearch from "./BlogSearch";
 import BlogTags from "./BlogTags";
-import client from "@/pages/blog/sanityConfig";
+import client from "@/sanityConfig";
 
 const BlogAside = () => {
   const [searchResults, setSearchResults] = useState([]);

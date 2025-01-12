@@ -4,7 +4,7 @@ import LayoutBlog from "@/layouts/LayoutBlog";
 import Head from "next/head";
 import { createClient } from "next-sanity";
 import { useEffect, useState } from "react";
-import client from "./sanityConfig";
+import client from "../../sanityConfig";
 
 export default function Home() {
   const [blog_list, setblog_list] = useState([]);
