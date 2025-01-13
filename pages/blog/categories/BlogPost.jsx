@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function BlogPost({blog}) {
+  if (!blog) return
   return (
     <a
     key={blog.slug}
