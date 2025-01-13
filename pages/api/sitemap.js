@@ -14,6 +14,7 @@ export default async function handler(req, res) {
 
   const staticPages = [
     { loc: "/", priority: 1 },
+    { loc: "/blog", priority: 0.9 },
     { loc: "/whitepaper", priority: 0.8 },
     { loc: "/pitchdeck", priority: 0.8 },
     { loc: "/privacy", priority: 0.8 },
@@ -36,7 +37,7 @@ export default async function handler(req, res) {
         ? new Date(post._updatedAt).toISOString()
         : new Date().toISOString(),
       changefreq: "weekly",
-      priority: 0.8,
+      priority: 0.9,
     })),
   ];
 
