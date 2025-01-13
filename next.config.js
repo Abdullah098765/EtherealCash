@@ -17,6 +17,9 @@ const nextConfig = {
 
     return config;
   },
+  ...(process.env.NODE_ENV === 'production' && {
+    generateSitemap: true, // Enable sitemap generation in production
+  }),
 };
 
 module.exports = nextConfig;
