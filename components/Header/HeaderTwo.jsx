@@ -128,25 +128,25 @@ const HeaderTwo = () => {
                       </li>
                       <li className={cn(hash == "about" && "active")}>
                         <a
-                          href="#about"
+                          href="https://etherealcash.com/#about"
                           className="section-link"
                           onClick={() => handleClickScroll("about")}
                         >
                           About us
                         </a>
                       </li>
-                      <li className={isActiveLink("#roadmap")}>
+                      {/* <li className={isActiveLink("#roadmap")}>
                         <Link
-                          href="#roadmap"
+                          href="https://etherealcash.com/#sales"
                           className="section-link"
-                          onClick={() => handleClickScroll("roadmap")}
+                          // onClick={() => handleClickScroll("roadmap")}
                         >
                           Roadmap
                         </Link>
-                      </li>
+                      </li> */}
                       <li className={isActiveLink("#faq")}>
                         <Link
-                          href="#faq"
+                          href="https://etherealcash.com/faq"
                           className="section-link"
                           onClick={() => handleClickScroll("faq")}
                         >
@@ -155,22 +155,10 @@ const HeaderTwo = () => {
                       </li>
                       <li className={"menu-item-has-children"}>
                         <Link href="/blog">Blog</Link>
-                        <ul className={cn("sub-menu")}>
-                          <li className={cn(pathname == "/blog" && "active")}>
-                            <Link href="/blog">Our Blog</Link>
-                          </li>
-                          <li
-                            className={cn(
-                              pathname == "/blog/blog-details" && "active"
-                            )}
-                          >
-                            <Link href="/blog/blog-details">Blog Details</Link>
-                          </li>
-                        </ul>
                       </li>
                       <li className={isActiveLink("#contact")}>
                         <Link
-                          href="#contact"
+                          href="https://etherealcash.com/#contact"
                           className="section-link"
                           onClick={() => handleClickScroll("contact")}
                         >
@@ -182,8 +170,8 @@ const HeaderTwo = () => {
                   <div className="header-action d-none d-md-block">
                     <ul>
                       <li className="header-lang">
-                        <span className="selected-lang">ENG</span>
-                        <ul className="lang-list">
+                        {/* <span className="selected-lang">ENG</span> */}
+                        {/* <ul className="lang-list">
                           <li>
                             <Link href="#">IND</Link>
                           </li>
@@ -196,10 +184,13 @@ const HeaderTwo = () => {
                           <li>
                             <Link href="#">CIN</Link>
                           </li>
-                        </ul>
+                        </ul> */}
                       </li>
                       <li className="header-btn">
-                        <Link href="#" className="btn">
+                        <Link
+                          href="https://etherealcash.com/#contact"
+                          className="btn"
+                        >
                           Buy Now
                         </Link>
                       </li>
@@ -222,32 +213,26 @@ const HeaderTwo = () => {
                   <div className="menu-outer">
                     {/* <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--> */}
                   </div>
-                  <div className="social-links">
+
+                  <div className={"social-links"}>
                     <ul className="clearfix">
                       <li>
-                        <Link href="#">
-                          <i className="fab fa-facebook-f"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
+                        <a target="_" href="https://x.com/signalvase">
                           <i className="fab fa-twitter"></i>
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link href="#">
-                          <i className="fab fa-instagram"></i>
-                        </Link>
+                        <a target="_" href="https://t.me/signal_vase">
+                          <i className="fab fa-telegram"></i>
+                        </a>
                       </li>
                       <li>
-                        <Link href="#">
-                          <i className="fab fa-linkedin-in"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          <i className="fab fa-youtube"></i>
-                        </Link>
+                        <a
+                          target="_"
+                          href="https://www.linkedin.com/company/signalvase"
+                        >
+                          <i className="fab fa-linkedin"></i>
+                        </a>
                       </li>
                     </ul>
                   </div>

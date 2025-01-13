@@ -1,19 +1,20 @@
 import React from "react";
 import Link from "next/link";
-const BlogRecentItem = (props) => {
+
+const BlogRecentItem = ({ item }) => {
   return (
     <div className="rc-post-item">
       <div className="rc-post-thumb">
-        <Link href={props.item.url}>
-          <img src={props.item.src} alt="img" />
+        <Link href={`/blog/${item.slug}`}>
+          <img src={item.images[0]?.asset?.url} alt={item.title} />
         </Link>
       </div>
 
       <div className="rc-post-content">
-        <span>{props.item.time}</span>
+        <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
 
         <h4 className="title">
-          <Link href={props.item.url}>{props.item.title}</Link>
+          <Link href={`/blog/${item.slug}`}>{item.title}</Link>
         </h4>
       </div>
     </div>

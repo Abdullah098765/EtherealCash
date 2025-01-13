@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { createClient } from "next-sanity";
+import client from "@/sanityConfig";
+
+
+const fetchTags = async () => {
+  const query = `*[_type == "blog" && defined(tags)]{
+    tags
+  }`;
+
+  const result = await client.fetch(query);
+
+  // Flatten the tags array and remove duplicates
+  const allTags = result.flatMap((post) => post.tags).filter(Boolean);
+  const uniqueTags = [...new Set(allTags)]; // Get unique tags
+
+  return uniqueTags;
+};
+
 const BlogTags = () => {
-  const tags = [
-    { title: "landing", url: "/blog" },
-    { title: "charity", url: "/blog" },
-    { title: "apps", url: "/blog" },
-    { title: "education", url: "/blog" },
-    { title: "data", url: "/blog" },
-    { title: "book", url: "/blog" },
-    { title: "design", url: "/blog" },
-    { title: "website", url: "/blog" },
-    { title: "landng page", url: "/blog" },
-  ];
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    fetchTags().then((fetchedTags) => {
+      setTags(fetchedTags);
+    });
+  }, []);
 
   return (
     <div className="blog-widget">
-      <h2 className="bw-title">Popular Tag</h2>
+      <h2 className="bw-title">Popular Tags</h2>
       <div className="tag-list">
         <ul>
-          {tags.map((tag, index) => (
-            <li key={index}>
-              <Link href={tag.url}>{tag.title}</Link>
-            </li>
-          ))}
+          {tags.length === 0 ? (
+            <li>No tags available</li>
+          ) : (
+            tags.map((tag, index) => (
+              <li key={index}>
+                <Link href={`/blog/tags/${tag}`}>{tag}</Link>
+              </li>
+            ))
+          )}
         </ul>
       </div>
     </div>

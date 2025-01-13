@@ -5,24 +5,35 @@ import BlogRecents from "./BlogRecents";
 import BlogSearch from "./BlogSearch";
 import BlogTags from "./BlogTags";
 import client from "@/sanityConfig";
+import SearchResults from "./SearchResults";
 
 const BlogAside = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (query) => {
-    if (!query) return;
+    if (query == "") {
+      setSearchResults([]);
+      return;
+    }
 
     setLoading(true);
-console.log("query", query);
 
     try {
       // GROQ Query to search posts by title or content
       const results = await client.fetch(
-        `*[_type == "post" && title match $query || body match $query]{
+        `*[_type == "blog" && title match $query || body match $query]{
           _id,
           title,
           slug,
+          readingTime,
+          "author": author->name,
+           images[]{
+          asset->{
+            _id,
+            url
+          }
+        },
           publishedAt,
           "imageUrl": mainImage.asset->url
         }`,
@@ -47,23 +58,26 @@ console.log("query", query);
       {/* blog searching */}
       <BlogSearch onSearch={handleSearch} />
       {/* Loading State */}
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <p className="text-center mx-auto" style={{ width: "fit-content" }}>
+          Loading...
+        </p>
+      )}
 
-      {/* Render Search Results */}
-      <div className="search-results">
-        {searchResults.map((post) => (
-          <div key={post._id} className="search-result-item">
-            <h4>{post.title}</h4>
-            {post.imageUrl && <img src={post.imageUrl} alt={post.title} />}
-            <a href={`/blog/${post.slug.current}`}>Read more</a>
-          </div>
-        ))}
+      {/* Render Search Results in Row Layout */}
+      <div className="container mt-4">
+        <div className="row">
+          {searchResults.map((blog) => (
+            <SearchResults key={blog._id} blog={blog} />
+          ))}
+        </div>
       </div>
+
       {/* blog categories */}
       <BlogCategories />
 
       {/* blog pages */}
-      <BlogPages />
+      {/* <BlogPages /> */}
 
       {/* blog recents */}
       <BlogRecents />

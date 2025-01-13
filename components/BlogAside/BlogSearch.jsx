@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const BlogSearch = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
-     onSearch(query); // Notify the parent with the search query
+    onSearch(query); // Notify the parent with the search query
     console.log(query);
-    
   };
+  useEffect(() => {
+    onSearch(query);
+  }, [query]);
 
   return (
     <div className="blog-widget">

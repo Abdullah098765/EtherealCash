@@ -78,7 +78,7 @@ const BlogListItem = (props) => {
         <p>{excerpt || "No summary available for this article."}</p>
 
         {/* Categories */}
-        {categories?.length > 0 && (
+        {/* {categories?.length > 0 && (
           <div className="blog-categories">
             {categories.map((category, index) => (
               <span key={index} className="category-tag">
@@ -86,7 +86,7 @@ const BlogListItem = (props) => {
               </span>
             ))}
           </div>
-        )}
+        )} */}
 
         {/* Read More Button */}
         <Link href={`/blog/${slug}`} className="btn btn-two">
@@ -98,3 +98,4 @@ const BlogListItem = (props) => {
 };
 
 export default BlogListItem;
+

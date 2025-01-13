@@ -59,7 +59,7 @@ export default function Home() {
 
       <LayoutBlog blog_list={blog_list} pageTitle={"Signal Vase Newsroom"} item={""}>
         <BlogList blog_list={blog_list} />
-        <BlogPagination />
+        {/* <BlogPagination /> */}
       </LayoutBlog>
     </>
   );

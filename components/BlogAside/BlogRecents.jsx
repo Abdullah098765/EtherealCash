@@ -1,33 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogRecentItem from "./BlogRecentItem";
+import { createClient } from "next-sanity";
+import client from "@/sanityConfig";
+
+const fetchRecentPosts = async () => {
+  const query = `*[_type == "blog"] | order(publishedAt desc)[0...4] { 
+    title,
+    "slug": slug.current,
+    publishedAt,
+     images[]{
+          asset->{
+            _id,
+            url
+          }
+        },
+  }`;
+
+  const recentPosts = await client.fetch(query);
+  return recentPosts;
+};
 
 const BlogRecents = () => {
-  const recentItems = [
-    {
-      title: "Don’t Underestimate The Software",
-      url: "/blog/blog-details",
-      time: "4 March. 2022",
-      src: "/img/blog/rc_post_img01.jpg",
-    },
-    {
-      title: "Designing Human-Machine Interfaces..",
-      url: "/blog/blog-details",
-      time: "4 March. 2022",
-      src: "/img/blog/rc_post_img02.jpg",
-    },
-    {
-      title: "Web Design Done Well: Excellent",
-      url: "/blog/blog-details",
-      time: "4 March. 2022",
-      src: "/img/blog/rc_post_img03.jpg",
-    },
-    {
-      title: "Don’t Underestimate The Software",
-      url: "/blog/blog-details",
-      time: "4 March. 2022",
-      src: "/img/blog/rc_post_img04.jpg",
-    },
-  ];
+  const [recentItems, setRecentItems] = useState([]);
+
+  useEffect(() => {
+    // Fetch the recent posts
+    fetchRecentPosts().then((posts) => {
+      setRecentItems(posts);
+    });
+  }, []);
 
   return (
     <div className="blog-widget">
