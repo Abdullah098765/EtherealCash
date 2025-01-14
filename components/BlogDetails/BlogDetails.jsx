@@ -81,8 +81,8 @@ const BlogDetails = ({ blog, client }) => {
                 link: ({ children, value }) => (
                   <a
                     href={
-                      value.href.startsWith("http://") ||
-                      value.href.startsWith("https://")
+                      value.href?.startsWith("http://") ||
+                      value.href?.startsWith("https://")
                         ? value.href
                         : `http://${value.href}`
                     }
