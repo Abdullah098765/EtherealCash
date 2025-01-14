@@ -9,7 +9,6 @@ import client from "../../sanityConfig";
 export default function Home() {
   const [blog_list, setblog_list] = useState([]);
 
-
   const fetchBlogs = async () => {
     console.log("first");
     const res = await client.fetch(`
@@ -49,15 +48,19 @@ export default function Home() {
     <>
       <Head>
         <title>
-          EtherealCash - Revolutionizing Crypto with AI Trading for Traders
+          EtherealCash Blog - Insights on Crypto, AI Trading, and Blockchain Trends
         </title>
         <meta
           name="description"
-          content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community."
+          content="Explore the EtherealCash Blog for the latest insights on cryptocurrency, AI-driven trading strategies, blockchain technology, and expert tips to empower traders and investors in the crypto space."
         />
       </Head>
 
-      <LayoutBlog blog_list={blog_list} pageTitle={"Signal Vase Newsroom"} item={""}>
+      <LayoutBlog
+        blog_list={blog_list}
+        pageTitle={"Signal Vase Newsroom"}
+        item={""}
+      >
         <BlogList blog_list={blog_list} />
         {/* <BlogPagination /> */}
       </LayoutBlog>
