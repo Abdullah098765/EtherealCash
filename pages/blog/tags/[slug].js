@@ -7,7 +7,7 @@ import client from "@/sanityConfig";
 
 const fetchPostsByTag = async (tag) => {
   const query = `*[_type == "blog" && "${tag}" in tags[]] {
-   title,
+     title,
       "slug": slug.current,
       body,
       "authorName": author->name,
@@ -34,7 +34,7 @@ const TagPage = () => {
   const router = useRouter();
   useEffect(() => {
     const pathname = window.location.pathname;
-    const tag = pathname.split("/").pop();
+    const tag = decodeURIComponent(pathname.split("/").pop());
 
     if (tag) {
       setTag(tag);

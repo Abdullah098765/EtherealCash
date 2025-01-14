@@ -3612,7 +3612,7 @@ label {
 
 .projcard-img {
   width: 200px; /* Fixed width for consistent layout */
-  height: 200px; /* Fixed height for consistent layout */
+  height: 235px; /* Fixed height for consistent layout */
   object-fit: cover; /* Ensures the image fills the container */
   border-radius: 10px 0 0 10px;
 }
