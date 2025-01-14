@@ -8,10 +8,13 @@ const WhoWeAre = () => {
         <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="about-img wow fadeInLeft" data-wow-delay=".2s">
-              <img src={"/img/images/about_img01.png"} alt="" />
+              <img
+                src={"/img/images/about_img01.png"}
+                alt="EtherealCash logo"
+              />
               <img
                 src={"/img/images/about_img02.png"}
-                alt=""
+                alt="Bol"
                 className="img-two"
               />
             </div>
@@ -21,10 +24,12 @@ const WhoWeAre = () => {
               <div className="section-title mb-30">
                 <span className="sub-title">Who we are</span>
                 <h2 className="title">
-                  The World’s <span>First AI-Driven Exchange</span>, Trading Signals Marketplace, and Social Media Platform for Traders and Investors
+                  The World’s <span>First AI-Driven Exchange</span>, Trading
+                  Signals Marketplace, and Social Media Platform for Traders and
+                  Investors
                 </h2>
               </div>
-              <p className="w-full" style={{width:"100%"}} >
+              <p className="w-full" style={{ width: "100%" }}>
                 {`At Signal Vase, we’re revolutionizing the way traders connect,
                 share, and profit from trading signals. Harnessing the power of
                 AI, our platform offers intelligent signal recommendations,

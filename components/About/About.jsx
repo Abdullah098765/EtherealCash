@@ -10,7 +10,7 @@ const About = () => {
               className="about-img-two text-center wow fadeInLeft"
               data-wow-delay=".2s"
             >
-              <img src={"/img/images/h2_about_img.png"} alt="" />
+              <img src={"/img/images/h2_about_img.png"} alt="Mobile" />
             </div>
           </div>
           <div className="col-lg-6">
@@ -57,12 +57,12 @@ const About = () => {
       <div className="about-shape-wrap">
         <img
           src={"/img/images/about_shape01.png"}
-          alt=""
+          alt="about_shape01"
           className="shape-one"
         />
         <img
           src={"/img/images/about_shape02.png"}
-          alt=""
+          alt="about_shape02"
           className="shape-two rotateme"
         />
       </div>

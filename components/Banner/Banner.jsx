@@ -7,17 +7,17 @@ const Banner = () => {
       <div className="banner-shape-wrap">
         <img
           src={"/img/banner/banner_shape01.png"}
-          alt=""
+          alt="banner_shape01"
           className="img-one"
         />
         <img
           src={"/img/banner/banner_shape02.png"}
-          alt=""
+          alt="banner_shape02"
           className="img-two"
         />
         <img
           src={"/img/banner/banner_shape03.png"}
-          alt=""
+          alt="banner_shape03"
           className="img-three"
         />
       </div>
@@ -26,7 +26,7 @@ const Banner = () => {
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="banner-content text-center">
-              <img src={"/img/icon/tokenIcon.png"} alt="" />
+              <img src={"/img/icon/tokenIcon.png"} alt="EtherealCash Small Icon" />
               <h2 className="title">
                 Join <span>EtherealCash's</span> exclusive OTC phase and be part
                 of the revolution in AI-driven trading.

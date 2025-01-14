@@ -53,7 +53,7 @@ const BannerTwo = () => {
           data-target="#about"
           onClick={() => handleClickScroll("about")}
         >
-          <img src={"/img/icon/scroll_icon.svg"} alt="" />
+          <img src={"/img/icon/scroll_icon.svg"} alt="Arrow Up" />
         </Link>
       </div>
     </section>

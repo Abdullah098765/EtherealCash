@@ -11,7 +11,7 @@ const WhitePaper = () => {
               className="document-img text-center wow fadeInUp"
               data-wow-delay=".2s"
             >
-              <img src={"/img/images/document_img.png"} alt="" />
+              <img src={"/img/images/document_img.png"} alt="EtherealCash Whitepaper" />
             </div>
           </div>
 
