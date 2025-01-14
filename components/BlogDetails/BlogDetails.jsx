@@ -14,6 +14,7 @@ const BlogDetails = ({ blog, client }) => {
   return (
     <div className="blog-post-item blog-details-wrap">
       {/* Blog Thumbnail */}
+
       <div className="blog-post-thumb">
         <img
           src={blog?.images?.[0]?.asset?.url || "/img/blog/default_img.jpg"}
@@ -54,10 +55,11 @@ const BlogDetails = ({ blog, client }) => {
             </li>
           </ul>
         </div>
-
         {/* Blog Title */}
-        <h2 className="title">{blog.title}</h2>
-
+        <h2 className="title text-text-black" style={{ color: "#000" }}>
+          {blog.title}
+        </h2>
+<br></br>
         {/* Blog Body */}
         <div className="blog-body">
           <PortableText
@@ -92,6 +94,19 @@ const BlogDetails = ({ blog, client }) => {
                     {children}
                   </a>
                 ),
+              },
+
+              block: {
+                h1: ({ children }) => (
+                  <h1 style={{ color: "black" }}>{children}</h1>
+                ),
+                h2: ({ children }) => (
+                  <h2 style={{ color: "black" }}>{children}</h2>
+                ),
+                h3: ({ children }) => (
+                  <h3 style={{ color: "black" }}>{children}</h3>
+                ),
+                // Add more heading styles as needed
               },
             }}
           />
