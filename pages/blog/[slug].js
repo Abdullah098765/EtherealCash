@@ -81,7 +81,7 @@ export default function Slug() {
   {/* Open Graph Meta Tags */}
   <meta property="og:title" content={blog.seoTitle || blog.title || "Blog Details"} />
   <meta property="og:description" content={blog.seoDescription || ""} />
-  <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "/default-image.jpg"} />
+  <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
   <meta property="og:url" content={`https://etherealcash.com/blog/${slug}` || "https://etherealcash.com"} />
   <meta property="og:type" content="article" />
   
@@ -89,7 +89,7 @@ export default function Slug() {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={blog.seoTitle || blog.title || "Blog Details"} />
   <meta name="twitter:description" content={blog.seoDescription || ""} />
-  <meta name="twitter:image" content={blog?.images?.[0]?.asset?.url || "/default-image.jpg"} />
+  <meta name="twitter:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
 </Head>
 
 
