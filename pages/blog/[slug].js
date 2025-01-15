@@ -72,10 +72,24 @@ export default function Slug({ blog }) {
 
 // Fetch blog data on each request
 export async function getServerSideProps({ params }) {
-  const blog = await fetchBlogBySlug(params.slug);
-  return {
-    props: {
-      blog,
-    },
-  };
+  try {
+    const blog = await fetchBlogBySlug(params.slug);
+
+    if (!blog) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        blog,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    return {
+      notFound: true,
+    };
+  }
 }
