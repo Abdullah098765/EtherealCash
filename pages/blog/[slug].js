@@ -74,7 +74,7 @@ export default function Slug() {
 
   return (
     <>
-    <Head>
+  <Head>
   <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
   <meta name="description" content={blog.seoDescription || ""} />
   
@@ -82,7 +82,7 @@ export default function Slug() {
   <meta property="og:title" content={blog.seoTitle || blog.title || "Blog Details"} />
   <meta property="og:description" content={blog.seoDescription || ""} />
   <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "/default-image.jpg"} />
-  <meta property="og:url" content={`/blog/${slug}` || "https://etherealcash.com"} />
+  <meta property="og:url" content={`https://etherealcash.com/blog/${slug}` || "https://etherealcash.com"} />
   <meta property="og:type" content="article" />
   
   {/* Twitter Card Meta Tags */}
