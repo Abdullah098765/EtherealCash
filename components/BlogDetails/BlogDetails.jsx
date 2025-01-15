@@ -106,6 +106,12 @@ const BlogDetails = ({ blog, client }) => {
                 h3: ({ children }) => (
                   <h3 style={{ color: "black" }}>{children}</h3>
                 ),
+                h4: ({ children }) => (
+                  <h3 style={{ color: "black" }}>{children}</h3>
+                ),
+                h5: ({ children }) => (
+                  <h3 style={{ color: "black" }}>{children}</h3>
+                ),
                 // Add more heading styles as needed
               },
             }}
