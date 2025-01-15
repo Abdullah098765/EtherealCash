@@ -1,71 +1,43 @@
-import { useEffect, useState } from "react";
-import BlogCommentForm from "@/components/BlogDetails/BlogCommentForm";
-import BlogComments from "@/components/BlogDetails/BlogComments";
+import { createClient } from "next-sanity";
 import BlogDetails from "@/components/BlogDetails/BlogDetails";
 import LayoutBlog from "@/layouts/LayoutBlog";
 import Head from "next/head";
-import { createClient } from "next-sanity";
+
+// Initialize Sanity client
 const client = createClient({
-  projectId: "tjsokre9",
-  dataset: "production",
-  apiVersion: "v2022-03-07", // Use current date for API version
-  useCdn: true, // Set to false if you want live updates
+  projectId: "your-project-id",
+  dataset: "your-dataset",
+  useCdn: true,
 });
 
+// Fetch blog data based on slug
 const fetchBlogBySlug = async (slug) => {
-  const query = `
-    *[_type == "blog" && slug.current == $slug][0] {
-      title,
-      "slug": slug.current,
-      body,
-      "authorName": author->name,
-      "authorImage": author->image.asset->url,
-      publishedAt,
-      excerpt,
-      tags,
-      images[]{
-        asset->{
-          _id,
-          url
-        }
-      },
-      seoTitle,
-      seoDescription,
-      readingTime
-    }
-  `;
+  const query = `*[_type == "blog" && slug.current == $slug][0] {
+    title,
+    "slug": slug.current,
+    body,
+    "authorName": author->name,
+    "authorImage": author->image.asset->url,
+    publishedAt,
+    excerpt,
+    tags,
+    images[] {
+      asset->{
+        _id,
+        url
+      }
+    },
+    seoTitle,
+    seoDescription,
+    readingTime
+  }`;
   const blog = await client.fetch(query, { slug });
   return blog;
 };
 
-export default function Slug() {
-  const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [slug, setSlug] = useState(null);
-
-  useEffect(() => {
-    // Accessing the slug directly from the URL path
-    const pathname = window.location.pathname;
-    const pathSlug = pathname.split("/").pop(); // Get the slug from URL
-
-    setSlug(pathSlug); // Set the slug state
-
-    if (pathSlug) {
-      setLoading(true);
-      fetchBlogBySlug(pathSlug)
-        .then((data) => {
-          setBlog(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching blog:", error);
-          setLoading(false);
-        });
-    }
-  }, []);
-
+export default function Slug({ blog, loading }) {
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>; // Replace with a loading spinner or skeleton
   }
 
   if (!blog) {
@@ -74,30 +46,70 @@ export default function Slug() {
 
   return (
     <>
-  <Head>
-  <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
-  <meta name="description" content={blog.seoDescription || ""} />
-  
-  {/* Open Graph Meta Tags */}
-  <meta property="og:title" content={blog.seoTitle || blog.title || "Blog Details"} />
-  <meta property="og:description" content={blog.seoDescription || ""} />
-  <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
-  <meta property="og:url" content={`https://etherealcash.com/blog/${slug}` || "https://etherealcash.com"} />
-  <meta property="og:type" content="article" />
-  
-  {/* Twitter Card Meta Tags */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={blog.seoTitle || blog.title || "Blog Details"} />
-  <meta name="twitter:description" content={blog.seoDescription || ""} />
-  <meta name="twitter:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
-</Head>
+      <Head>
+        <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
+        <meta name="description" content={blog.seoDescription || ""} />
 
+        {/* Open Graph Meta Tags */}
+        <meta
+          property="og:title"
+          content={blog.seoTitle || blog.title || "Blog Details"}
+        />
+        <meta property="og:description" content={blog.seoDescription || ""} />
+        <meta
+          property="og:image"
+          content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"}
+        />
+        <meta property="og:url" content={`https://etherealcash.com/blog/${blog.slug}`} />
+        <meta property="og:type" content="article" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={blog.seoTitle || blog.title || "Blog Details"}
+        />
+        <meta name="twitter:description" content={blog.seoDescription || ""} />
+        <meta
+          name="twitter:image"
+          content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"}
+        />
+      </Head>
 
       <LayoutBlog pageTitle={blog?.title || "Blog Details"} item={blog?.title || "BLOG DETAILS"}>
-      <BlogDetails client={client} blog={blog} />
-        {/* <BlogComments comments={[]} /> */}
-        {/* <BlogCommentForm blogId={blog._id} /> */}
+        <BlogDetails client={client} blog={blog} />
+        {/* Additional blog content can go here */}
       </LayoutBlog>
     </>
   );
+}
+
+// Fetch blog data on each request
+export async function getServerSideProps({ params }) {
+  let blog = null;
+  let loading = true;
+
+  try {
+    blog = await fetchBlogBySlug(params.slug);
+    loading = false;
+
+    if (!blog) {
+      return {
+        notFound: true,
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    loading = false;
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      blog,
+      loading,
+    },
+  };
 }
