@@ -74,10 +74,24 @@ export default function Slug() {
 
   return (
     <>
-      <Head>
-        <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
-        <meta name="description" content={blog.seoDescription || ""} />
-      </Head>
+    <Head>
+  <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
+  <meta name="description" content={blog.seoDescription || ""} />
+  
+  {/* Open Graph Meta Tags */}
+  <meta property="og:title" content={blog.seoTitle || blog.title || "Blog Details"} />
+  <meta property="og:description" content={blog.seoDescription || ""} />
+  <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "/default-image.jpg"} />
+  <meta property="og:url" content={`/blog/${slug}` || "https://etherealcash.com"} />
+  <meta property="og:type" content="article" />
+  
+  {/* Twitter Card Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={blog.seoTitle || blog.title || "Blog Details"} />
+  <meta name="twitter:description" content={blog.seoDescription || ""} />
+  <meta name="twitter:image" content={blog?.images?.[0]?.asset?.url || "/default-image.jpg"} />
+</Head>
+
 
       <LayoutBlog pageTitle={blog?.title || "Blog Details"} item={blog?.title || "BLOG DETAILS"}>
       <BlogDetails client={client} blog={blog} />
