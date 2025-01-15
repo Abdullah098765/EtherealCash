@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config) => {
+    
     // Add a rule to handle react-syntax-highlighter's esm/cjs issue
     config.module.rules.push({
       test: /\.js$/,
