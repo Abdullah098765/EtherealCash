@@ -38,25 +38,32 @@ const fetchBlogBySlug = async (slug) => {
   return blog;
 };
 
-// Use getStaticProps for static site generation
-export async function getStaticProps({ params }) {
-  const blog = await fetchBlogBySlug(params.slug);
-  return {
-    props: {
-      blog,
-    },
-  };
-}
-
-// getStaticPaths (to generate paths for static pages)
 export async function getStaticPaths() {
+  console.log("Fetching all blogs for paths...");
   const allBlogs = await client.fetch('*[_type == "blog"] { slug }');
+  console.log("Fetched blogs:", allBlogs);
+
   const paths = allBlogs.map((blog) => ({
     params: { slug: blog.slug.current },
   }));
+  console.log("Generated paths:", paths);
 
   return { paths, fallback: false };
 }
+
+export async function getStaticProps({ params }) {
+  console.log("Fetching blog data for slug:", params.slug);
+  const blog = await fetchBlogBySlug(params.slug);
+  console.log("Fetched blog data:", blog);
+
+  if (!blog) {
+    console.error("Blog not found!");
+    return { notFound: true };
+  }
+
+  return { props: { blog } };
+}
+
 
 export default function Slug({ blog }) {
   if (!blog) {

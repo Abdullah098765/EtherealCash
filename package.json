@@ -8,15 +8,22 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "maxWorkers": 19
+  },
   "dependencies": {
     "@next/font": "13.1.6",
     "@portabletext/react": "^3.2.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.1.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
     "emailjs-com": "^3.2.0",
     "github-markdown-css": "^5.8.1",
+    "jest": "^29.7.0",
     "jquery": "^3.6.3",
     "next": "^14.2.0",
     "next-sanity": "^9.8.31",
