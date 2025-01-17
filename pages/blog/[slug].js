@@ -3,16 +3,30 @@ import BlogDetails from "@/components/BlogDetails/BlogDetails";
 import LayoutBlog from "@/layouts/LayoutBlog";
 import Head from "next/head";
 
-// Sanity client initialization
 const client = createClient({
   projectId: "tjsokre9",
   dataset: "production",
-  apiVersion: "v2022-03-07", 
-  useCdn: true, 
+  apiVersion: "v2022-03-07",
+  useCdn: true,
 });
 
-// Fetch blog data by slug
-const fetchBlogBySlug = async (slug) => {
+// Fetch all blog slugs for static generation
+export async function getStaticPaths() {
+  const query = `
+    *[_type == "blog"] {
+      "slug": slug.current
+    }
+  `;
+  const blogs = await client.fetch(query);
+  const paths = blogs.map((blog) => ({
+    params: { slug: blog.slug },
+  }));
+
+  return { paths, fallback: "blocking" };
+}
+
+// Fetch blog data for each slug
+export async function getStaticProps({ params }) {
   const query = `
     *[_type == "blog" && slug.current == $slug][0] {
       title,
@@ -34,22 +48,16 @@ const fetchBlogBySlug = async (slug) => {
       readingTime
     }
   `;
-  const blog = await client.fetch(query, { slug });
-  return blog;
-};
-
-// Use getServerSideProps for dynamic fetching
-export async function getServerSideProps({ params }) {
-  console.log("Fetching blog data for slug:", params.slug);
-  const blog = await fetchBlogBySlug(params.slug);
-  console.log("Fetched blog data:", blog);
+  const blog = await client.fetch(query, { slug: params.slug });
 
   if (!blog) {
-    console.error("Blog not found!");
     return { notFound: true };
   }
 
-  return { props: { blog } };
+  return {
+    props: { blog },
+    revalidate: 60, // Revalidate the page every 60 seconds
+  };
 }
 
 export default function Slug({ blog }) {
