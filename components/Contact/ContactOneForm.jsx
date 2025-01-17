@@ -123,7 +123,7 @@ const ContactOneForm = () => {
               </p>
             </div>
           </div>
-
+{/* 
           <div class="col-md-6">
             <div
               class="p-4 rounded h-100 shadow-sm"
@@ -155,7 +155,7 @@ const ContactOneForm = () => {
                 </a>
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
