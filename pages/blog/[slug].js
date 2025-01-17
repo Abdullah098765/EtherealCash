@@ -38,20 +38,8 @@ const fetchBlogBySlug = async (slug) => {
   return blog;
 };
 
-export async function getStaticPaths() {
-  console.log("Fetching all blogs for paths...");
-  const allBlogs = await client.fetch('*[_type == "blog"] { slug }');
-  console.log("Fetched blogs:", allBlogs);
-
-  const paths = allBlogs.map((blog) => ({
-    params: { slug: blog.slug.current },
-  }));
-  console.log("Generated paths:", paths);
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
+// Use getServerSideProps for dynamic fetching
+export async function getServerSideProps({ params }) {
   console.log("Fetching blog data for slug:", params.slug);
   const blog = await fetchBlogBySlug(params.slug);
   console.log("Fetched blog data:", blog);
@@ -64,7 +52,6 @@ export async function getStaticProps({ params }) {
   return { props: { blog } };
 }
 
-
 export default function Slug({ blog }) {
   if (!blog) {
     return <div>Blog not found</div>;
@@ -75,17 +62,9 @@ export default function Slug({ blog }) {
       <Head>
         <title>{blog.seoTitle || blog.title || "Blog Details"}</title>
         <meta name="description" content={blog.seoDescription || ""} />
-        {/* Open Graph Meta Tags */}
         <meta property="og:title" content={blog.seoTitle || blog.title || "Blog Details"} />
         <meta property="og:description" content={blog.seoDescription || ""} />
         <meta property="og:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
-        <meta property="og:url" content={`https://etherealcash.com/blog/${blog.slug}`} />
-        <meta property="og:type" content="article" />
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.seoTitle || blog.title || "Blog Details"} />
-        <meta name="twitter:description" content={blog.seoDescription || ""} />
-        <meta name="twitter:image" content={blog?.images?.[0]?.asset?.url || "https://etherealcash.com/default-image.png"} />
       </Head>
 
       <LayoutBlog pageTitle={blog?.title || "Blog Details"} item={blog?.title || "BLOG DETAILS"}>

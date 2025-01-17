@@ -13,18 +13,10 @@ const BlogDetails = ({ blog, client }) => {
 
   return (
     <div className="blog-post-item blog-details-wrap">
-      {/* Blog Thumbnail */}
-
-      <div className="blog-post-thumb">
-        <img
-          src={blog?.images?.[0]?.asset?.url || "/img/blog/default_img.jpg"}
-          alt={blog.title}
-        />
-      </div>
-
-      {/* Blog Content */}
-      <div className="blog-post-content">
-        {/* Blog Metadata */}
+        {/* Blog Title */}
+        <h1 className="title text-text-black mb-5" style={{ color: "#000" }}>
+          {blog.title}
+        </h1>
         <div className="blog-meta">
           <ul>
             <li>
@@ -55,11 +47,20 @@ const BlogDetails = ({ blog, client }) => {
             </li>
           </ul>
         </div>
-        {/* Blog Title */}
-        <h2 className="title text-text-black" style={{ color: "#000" }}>
-          {blog.title}
-        </h2>
-<br></br>
+      
+      {/* Blog Thumbnail */}
+
+      <div className="blog-post-thumb ">
+        <img
+          src={blog?.images?.[0]?.asset?.url || "/img/blog/default_img.jpg"}
+          alt={blog.title}
+        />
+      </div>
+
+      {/* Blog Content */}
+      <div className="blog-post-content">
+        {/* Blog Metadata */}
+       
         {/* Blog Body */}
         <div className="blog-body">
           <PortableText
