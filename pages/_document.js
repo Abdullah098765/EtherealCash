@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-8EXD2R1PK1"
@@ -18,6 +19,7 @@ export default function Document() {
             `,
           }}
         />
+         <meta name="facebook-domain-verification" content="iaqt97a86jb79jbzyv9il55p1wpbp4" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
