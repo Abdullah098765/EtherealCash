@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   `;
   const blogs = await client.fetch(query);
   const paths = blogs.map((blog) => ({
-    params: { slug: blog.slug },
+    params: { slug: blog.slug }, 
   }));
 
   return { paths, fallback: "blocking" };
