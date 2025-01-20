@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
       publishedAt,
       excerpt,
       tags,
-      images[] {
+      images[] { 
         asset->{
           _id,
           url
