@@ -12,7 +12,7 @@ const Sales = () => {
   ];
 
   return (
-    <section id="sales" className="chart-area chart-bg">
+    <section id="allocation" className="chart-area chart-bg">
       <div className="container">
         <div className="chart-inner">
           <div className="row align-items-center justify-content-center">

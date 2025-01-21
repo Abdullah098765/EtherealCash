@@ -137,7 +137,7 @@ const HeaderTwo = () => {
                       </li>
                       {/* <li className={isActiveLink("#roadmap")}>
                         <Link
-                          href="https://etherealcash.com/#sales"
+                          href="https://etherealcash.com/#allocation"
                           className="section-link"
                           // onClick={() => handleClickScroll("roadmap")}
                         >

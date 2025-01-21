@@ -129,11 +129,11 @@ const HeaderOne = () => {
                           About us
                         </Link>
                       </li>
-                      <li className={isActiveLink("#sales")}>
+                      <li className={isActiveLink("#allocation")}>
                         <Link
-                          href="#sales"
+                          href="#allocation"
                           className={"section-link"}
-                          onClick={() => handleClickScroll("sales")}
+                          onClick={() => handleClickScroll("allocation")}
                         >
                           Funding
                         </Link>
