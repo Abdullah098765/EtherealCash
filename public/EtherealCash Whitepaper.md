@@ -2,7 +2,7 @@
 # EtherealCash Whitepaper
 
 ## Introduction
-EtherealCash (ERCH) is a next-generation cryptocurrency designed to power the Signal Vase ecosystem and beyond. Built on the robust Ethereum blockchain, EtherealCash leverages advanced smart contract functionalities to ensure transparency, security, and scalability. The token aims to serve as a medium for secure transactions within the Signal Vase platform, facilitating features like paid trading signals and AI-driven trading tools, while also providing governance and utility functions.
+EtherealCash (ERCH) is a next-generation cryptocurrency designed to power the Signal Vase ecosystem and beyond. EtherealCash leverages advanced smart contract functionalities to ensure transparency, security, and scalability. The token aims to serve as a medium for secure transactions within the Signal Vase platform, facilitating features like paid trading signals and AI-driven trading tools, while also providing governance and utility functions.
 
 EtherealCash is not just another cryptocurrency; it is a cornerstone of a growing ecosystem that seeks to blend social connectivity with cutting-edge trading solutions. With features like pausability, gasless transactions, and voting capabilities, EtherealCash is tailored to meet the needs of modern blockchain applications.
 
