@@ -1,49 +1,45 @@
 import BlogList from "@/components/BlogList/BlogList";
-import BlogPagination from "@/components/BlogPagination/BlogPagination";
 import LayoutBlog from "@/layouts/LayoutBlog";
 import Head from "next/head";
-import { createClient } from "next-sanity";
-import { useEffect, useState } from "react";
 import client from "../../sanityConfig";
 
-export default function Home() {
-  const [blog_list, setblog_list] = useState([]);
+export async function getStaticProps() {
+  // Fetch blog data during the build process
+  const blog_list = await client.fetch(`
+    *[_type == "blog"] {
+      title,
+      "slug": slug.current,
+      "author": author->name,
+      "authorImage": author->image.asset->url,
+      mainImage,
+      publishedAt,
+      categories,
+      body,
+      excerpt,
+      tags,
+      images[] {
+        asset->{
+          _id,
+          url
+        }
+      },
+      readingTime,
+      status,
+      seoTitle,
+      seoDescription
+    }
+  `);
 
-  const fetchBlogs = async () => {
-    console.log("first");
-    const res = await client.fetch(`
-      *[_type == "blog"] {
-        title,
-        "slug": slug.current,
-        "author": author->name,
-        "authorImage": author->image.asset->url,
-        mainImage,
-        publishedAt,
-        categories,
-        body,
-        excerpt,
-        tags,
-        images[]{
-          asset->{
-            _id,
-            url
-          }
-        },
-        readingTime,
-        status,
-        seoTitle,
-        seoDescription
-      }
-    `);
-    console.log(res, ">>>>>>>>>>>>>>>>>>>");
-    setblog_list(res);
-
-    return res;
+  return {
+    props: {
+      blog_list,
+    },
+    // Revalidate the page every 10 seconds for fresh data in production
+    revalidate: 10,
   };
-  useEffect(() => {
-    fetchBlogs();
-  }, []);
+}
 
+export default function Home({ blog_list }) {
   return (
     <>
       <Head>
@@ -62,7 +58,6 @@ export default function Home() {
         item={""}
       >
         <BlogList blog_list={blog_list} />
-        {/* <BlogPagination /> */}
       </LayoutBlog>
     </>
   );
