@@ -157,6 +157,9 @@ const  FooterOne = () => {
                       <Link href="/privacy">Privacy Policy</Link>
                     </li>
                     <li>
+                        <Link href="/write-for-us">Write For Us</Link>
+                      </li>
+                    <li>
                       <a
                         target="_"
                         href="https://www.signalvase.com/home?signup=true"

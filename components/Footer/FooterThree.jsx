@@ -92,6 +92,9 @@ const FooterThree = () => {
                       <li>
                         <Link href="/#partners">Partners</Link>
                       </li>
+                      <li>
+                        <Link href="/write-for-us">Write For Us</Link>
+                      </li>
                       {/* <li>
                         <Link href="/blog">Blog</Link>
                       </li>
