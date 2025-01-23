@@ -18,6 +18,7 @@ export default async function handler(req, res) {
     { loc: "/whitepaper", priority: 0.8 },
     { loc: "/pitchdeck", priority: 0.8 },
     { loc: "/privacy", priority: 0.8 },
+    { loc: "/write-for-us", priority: 0.8 },
     { loc: "/faq", priority: 0.8 },
     { loc: "/terms", priority: 0.8 },
   ];
