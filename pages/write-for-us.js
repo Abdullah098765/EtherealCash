@@ -4,7 +4,7 @@ import LayoutBlog from "@/layouts/LayoutBlog";
 const WriteForUsPage = () => {
   return (
     <LayoutBlog>
-      <WriteForUs />;
+      <WriteForUs />
     </LayoutBlog>
   );
 };
