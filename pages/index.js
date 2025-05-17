@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import Banner from "@/components/Banner/Banner";
 import ContactOne from "@/components/Contact/ContactOne";
 import Roadmap from "@/components/Roadmap/Roadmap";
@@ -22,6 +23,12 @@ export default function Home() {
           content="EtherealCash is the exclusive cryptocurrency for the Signal Vase platform, integrating Artificial Intelligence for advanced trading strategies. Empower traders and investors to engage securely, pay for signals, and build a trusted community."
         />
       </Head>
+      <Script 
+  src="https://widgets.leadconnectorhq.com/loader.js"  
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
+ data-widget-id="6826fa8bbd14c56530dd44b5"   > 
+ </Script>
+
 
       <LayoutOne>
         <main className="fix">
